@@ -1,0 +1,238 @@
+:root {
+    --PrimaryColor: hsl(199, 100%, 33%);
+    --SecondaryColor: hsl(187, 85%, 43%);
+    --gradientColor: linear-gradient(to right, hsl(187, 85%, 43%), hsl(199, 100%, 33%));
+    --whiteColor: hsl(0, 0%, 100%);
+    --blackColor: hsl(201, 33%, 16%);
+    --textColor: hsl(240, 4%, 36%);
+    --whiteColorDeam: hsl(0, 0%, 93%);
+    --greyText: rgb(190, 190, 190);
+    --inputColor: rgb(239, 239, 239);
+    --bodyColor: rgb(240, 240, 246); /* Fixed typo here */
+    --cardBG: rgb(225, 225, 235);
+    --cardHover: rgb(225, 225, 235);
+  }
+  
+  /* Rest of your CSS remains the same */
+  
+
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .main {
+    width: 100%;
+  }
+  
+  .title {
+    /* Your title styles */
+    position: relative;
+    width: max-content;
+    color: var(--textColor);
+    margin: 1rem 0;
+    z-index: 2;
+
+  }
+  
+  .title::after {
+    /* Your title::after styles */
+    position: absolute;
+    content: '';
+    background: var(--SecondaryColor);
+    height: 5px;
+    width: 120px;
+    right: 0;
+    bottom: 5px;
+    z-index: -1;
+
+  }
+  
+  .secContent.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+    gap: 20px;
+  }
+
+  .singleDestination {
+    border-radius: 10px;
+    background: var(--cardBG);
+    box-shadow: 0 2px 4px rgba(140, 140, 140, 0.549);
+    overflow: hidden;
+    transition: 0.3s ease;
+  }
+  
+
+  .singleDestination .cardInfo {
+    flex: 1; 
+    overflow: hidden; 
+  }
+.singleDestination:hover {
+    background: var(--whiteColor);
+    box-shadow: 1px 4px 4px rgba(85, 85, 114, 0.549);
+    transition: 0.3s ease;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  /* .card {
+    display: flex;
+    flex-direction: column;
+    flex: 1; 
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+  } */
+  
+  /* .cardInfo {
+   
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    h4.destTitle {
+      margin: 0;
+  }
+} */
+
+.cardInfo {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .destTitle{
+    color: var(--blackColor);
+    font-size: 1.25rem;
+}
+
+
+.imageDiv {
+    flex: 1;
+    overflow: hidden;
+  }
+img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease; 
+}
+    img:hover{
+            transform: scale(1.1); 
+    }
+    .continent{
+        gap: .5rem;
+
+        .icon{
+            color: var(--textColor);
+            font-size: 18px;
+        }
+
+        .name{
+            color: var(--textColor);
+            font-size: 14px;
+            font-weight: 400;
+        }
+    }
+
+    .fees{
+        width: 100%;
+        justify-content: space-between;
+        padding: 1rem;
+        margin: 1rem;
+        border-top: 1.5px solid var(--greyText);
+    }
+        .grade{
+            color: var(--textColor);
+            max-width: 100px;
+            line-height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        small{
+            text-align: center;
+            background: var(--gradientColor);
+            border-radius: 1rem;
+            color: var(--whiteColor);
+            padding: 1px 10px;
+        }
+          
+        .price{
+            font-size: 2em;
+            color: var(--blackColor);
+        }
+       .desc{
+        font-size: 13.5px;
+        color: var(--textColor);
+        font-weight: 500;
+       }
+       .btn{
+        margin-top: 1rem;
+        color: var(--whiteColor);
+        font-weight: 600;
+        justify-content: center;
+        gap: 5rem;
+
+        .icon{
+            align-items: center;
+            font-size: 18px;
+        }
+       }
+  
+
+
+  
+  @media screen and (min-width:500px) {
+    .title{
+        font-size: 1.5rem;
+  
+    &::after{
+        width: 155px !important;
+    }
+}
+    .secContent{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media screen and (min-width:840px) {
+    .secContent{
+        grid-template-columns: repeat(3,1fr);
+    }
+    .singleDestination{
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 840px) {
+    .singleDestination {
+      flex: 0 0 calc(50% - 1rem); 
+    }
+  }
+  
+  @media screen and (max-width: 500px) {
+    .singleDestination {
+      flex: 0 0 100%; 
+    }
+  }
+@media screen and (max-width: 840px) {
+  .secContent.grid {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .secContent.grid {
+    grid-template-columns: repeat(1, 1fr); 
+  }
+}
+
+
+  
